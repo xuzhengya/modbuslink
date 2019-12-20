@@ -1,0 +1,58 @@
+package com.modbus.client;
+
+
+import com.modbus.file.ScheduleTime;
+import com.modbus.mqtt.ReadCommandProcess;
+import com.modbus.pojo.ModbusResponseEntity;
+import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.io.IOException;
+import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
+public class MasterClient  {
+    public static void main(String[] args) {
+        timer();
+    }
+    public static void timer() {
+        Timer timer = new Timer();
+        //配置延迟时间
+        int delay=0;
+        //配置采集周期
+        int period=0;
+        try {
+            HashMap<String,Integer> map=ScheduleTime.getSchedule();
+            delay=map.get("delay");
+            period=map.get("period");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("启动后延迟"+delay/1000+"秒，"+period/1000+"秒执行一次定时任务");
+        //固定频率执行定时器
+        timer.scheduleAtFixedRate(new TimerTask() {
+           @Override
+            public void run() {
+                MasterRTUData masterRTUData=new MasterRTUData();
+                try {
+                    List<ModbusResponseEntity> list= masterRTUData.getMulitplesData();
+                    for(ModbusResponseEntity response:list){
+                        new ReadCommandProcess(response.getHeaderMap(),response.getBodyMap(),response.getName());
+                    }
+                } catch (UnknownHostException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, delay, period);
+    }
+}

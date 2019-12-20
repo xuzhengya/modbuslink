@@ -1,0 +1,86 @@
+package com.modbus.mqtt;
+
+
+
+import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class MqttProducer {
+	
+    private static final Integer QOS_DEFAULT = 2;
+
+	private static String g_Host;
+	private static String g_Username;
+	private static String g_Password;
+	private static String g_ClientID;
+	private static String g_Topic;
+  
+    private  MqttClient client;
+    private MqttTopic topic;
+
+   public MqttProducer()throws MqttException, IOException {
+       Properties props = new Properties();
+       String projectPath = System.getProperty("user.dir");
+//       projectPath=projectPath.substring(0,projectPath.lastIndexOf("\\"));
+       FileInputStream fis = new FileInputStream(projectPath + File.separator + "xml" + File.separator + "mqtt.properties");
+       props.load(fis);
+       g_Host = props.getProperty("mqtt.server.address");
+       g_Username = props.getProperty("mqtt.server.username");
+       g_Password = props.getProperty("mqtt.server.password");
+       g_ClientID = props.getProperty("mqtt.server.clientid");
+       g_Topic = props.getProperty("mqtt.server.topic");
+       //MemoryPersistence设置clientid的保存形式，默认为以内存保存
+       client = new MqttClient(g_Host, g_ClientID, new MemoryPersistence());
+       connect();
+   }
+
+    public synchronized void connect() throws MqttException, IOException {
+        MqttConnectOptions options = new MqttConnectOptions();  
+        options.setCleanSession(false);  
+        options.setUserName(g_Username);  
+        options.setPassword(g_Password.toCharArray());  
+        // 设置超时时间  
+        options.setConnectionTimeout(10);  
+        // 设置会话心跳时间  
+        options.setKeepAliveInterval(20);  
+        try {
+                client.setCallback(new PushCallback());
+                client.connect(options);
+                topic = client.getTopic(g_Topic);
+        } catch (Exception e) {  
+               e.printStackTrace();  
+        }  
+    }  
+    
+    public boolean isConnect() {
+    	if (client != null) {
+    		return client.isConnected();
+    	} else {
+    		return false;
+    	}
+    }
+    public void disConnect() throws MqttException {
+        if(client.isConnected()) {
+            client.disconnect();
+            client.close();
+        }
+    }
+    public  void send(String payload, Integer qos) throws MqttPersistenceException, MqttException {
+    	MqttMessage message = new MqttMessage();
+		message.setQos(qos != null ? qos : QOS_DEFAULT);
+        message.setRetained(true);
+        message.setPayload(payload.getBytes());
+        send(message);
+    }
+    
+    public synchronized void send(MqttMessage message) throws MqttPersistenceException, MqttException{
+        MqttDeliveryToken token = topic.publish(message);  
+        token.waitForCompletion();
+    }  
+  
+}

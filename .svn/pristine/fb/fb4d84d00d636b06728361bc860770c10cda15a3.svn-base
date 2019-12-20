@@ -1,0 +1,72 @@
+package com.modbus.client;
+
+
+import com.modbus.io.ModbusRTUTCPTransaction;
+import com.modbus.msg.ReadCoilsRequest;
+import com.modbus.msg.ReadCoilsResponse;
+import com.modbus.msg.ReadMultipleRegistersRequest;
+import com.modbus.msg.ReadMultipleRegistersResponse;
+import com.modbus.net.RTUTCPMasterConnection;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class ReadMasterRTU {
+
+
+    public  static synchronized RTUTCPMasterConnection getConnection(String ip, int port) throws UnknownHostException {
+        RTUTCPMasterConnection conn = null;
+        InetAddress addr = InetAddress.getByName(ip);
+        conn = new RTUTCPMasterConnection(addr, port);
+        conn.setPort(port);
+        conn.setTimeout(5000);
+        return conn;
+    }
+
+
+    public synchronized int readRegister(RTUTCPMasterConnection conn, int address, int quantity, int slaveId) {
+        int data=0;
+        try {
+            conn.connect();
+            ModbusRTUTCPTransaction trans = new ModbusRTUTCPTransaction(conn);
+
+            ReadMultipleRegistersRequest request = new ReadMultipleRegistersRequest(address, quantity);
+            request.setUnitID(slaveId);
+            trans.setRequest(request);
+            trans.execute();
+
+            ReadMultipleRegistersResponse response = (ReadMultipleRegistersResponse) trans.getResponse();
+            data = response.getRegisterValue(0);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            conn.close();
+        }
+        return data;
+    }
+
+    public synchronized int readCoils(RTUTCPMasterConnection conn, int address, int quantity, int slaveId) {
+        int data = 0;
+        try {
+            conn.connect();
+
+            ModbusRTUTCPTransaction trans = new ModbusRTUTCPTransaction(conn);
+
+            ReadCoilsRequest request = new ReadCoilsRequest(address, quantity);
+            request.setUnitID(slaveId);
+            trans.setRequest(request);
+            trans.execute();
+
+            ReadCoilsResponse res = ((ReadCoilsResponse) trans.getResponse());
+            if(res.getCoils().getBit(0)){
+                data = 1;
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            conn.close();
+        }
+        return data;
+    }
+
+}

@@ -1,0 +1,110 @@
+package com.modbus.test;
+
+
+
+import com.modbus.io.ModbusRTUTCPTransaction;
+import com.modbus.msg.ReadCoilsRequest;
+import com.modbus.msg.ReadCoilsResponse;
+import com.modbus.msg.ReadMultipleRegistersRequest;
+import com.modbus.msg.ReadMultipleRegistersResponse;
+import com.modbus.net.RTUTCPMasterConnection;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class ExampleMany {
+
+    public static void main(String[] args) {
+        ExampleMany example = new ExampleMany();
+
+        String host = "128.64.230.12";
+        int port = 4004;
+        int slaveId = 1;
+        int address=8;
+        int data1 = example.readRegister(host, port, address, 1, 1);
+//        int data2 = example.readRegister(host, port, 8, quantity, 1);
+//        int data3 = example.readRegister(host, port, 1, quantity, 1);
+//        int data4 = example.readRegister(host, port, 2, quantity, 1);
+        System.out.println(37 + " => " + data1);
+//        System.out.println(38 + " => " + data2);
+//        System.out.println(39 + " => " + data3);
+//        System.out.println(40 + " => " + data4);
+
+
+//        System.out.println("读位状态==================================>故障");
+//        quantity = 1;
+        byte[] datas = example.readCoils(host, port, address, 1, 1);
+        for (int i = 0; i < 1; i++) {
+            System.out.println(i + " => " + datas[i]);
+        }
+    }
+
+    public byte[] readCoils(String ip, int port, int address, int count, int slaveId) {
+        byte[] data = null;
+
+        RTUTCPMasterConnection conn = null;
+        try {
+            conn = this.getConnection(ip, port);
+            conn.connect();
+
+            ModbusRTUTCPTransaction trans = new ModbusRTUTCPTransaction(conn);
+
+            ReadCoilsRequest request = new ReadCoilsRequest(address, count);
+            request.setUnitID(slaveId);
+            trans.setRequest(request);
+            trans.execute();
+
+            ReadCoilsResponse response = (ReadCoilsResponse) trans.getResponse();
+            int len = response.getBitCount();
+            data = new byte[count];
+            for (int i = 0; i < len; i ++) {
+                if (response.getCoils().getBit(i)) {
+                    data [i] = 1;
+                }
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            conn.close();
+        }
+        return data;
+    }
+
+    public int readRegister(String ip, int port, int address, int count, int slaveId) {
+        int data = 0;
+
+        RTUTCPMasterConnection conn = null;
+        try {
+            conn = this.getConnection(ip, port);
+            conn.connect();
+
+            ModbusRTUTCPTransaction trans = new ModbusRTUTCPTransaction(conn);
+
+            ReadMultipleRegistersRequest request = new ReadMultipleRegistersRequest(address, count);
+            request.setUnitID(slaveId);
+            trans.setRequest(request);
+            trans.execute();
+
+            ReadMultipleRegistersResponse response = (ReadMultipleRegistersResponse) trans.getResponse();
+//            registers =response.getRegisters();
+            data = response.getRegisterValue(0);
+        } catch(Exception e) {
+            e.printStackTrace();
+        } finally {
+            conn.close();
+        }
+        return data;
+    }
+
+    public RTUTCPMasterConnection getConnection(String ip, int port) throws UnknownHostException {
+        RTUTCPMasterConnection conn = null;
+
+        InetAddress addr = InetAddress.getByName(ip);
+
+        conn = new RTUTCPMasterConnection(addr, port);
+        conn.setPort(port);
+        conn.setTimeout(5000);
+
+        return conn;
+    }
+}

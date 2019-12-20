@@ -1,0 +1,7 @@
+<config>
+    <!--位状态功能码，以逗号形成数组-->
+    <ReadCoils list="0X01,0X05"></ReadCoils>
+    <!--寄存器功能码-->
+    <ReadMulitple list="0X03,0X10"></ReadMulitple>
+</config>
+

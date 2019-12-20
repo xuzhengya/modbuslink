@@ -1,0 +1,12 @@
+mqtt.server.address=tcp://172.30.30.3:1883
+mqtt.server.topic=sensor-data
+mqtt.server.clientid=mqtt_client_modbusSend
+mqtt.server.username=seisys
+mqtt.server.password=Cc1234==
+
+#配置延迟时间
+main.run.schedule.delay=1000
+#配置采集周期
+main.run.schedule.period=60000
+#租户code
+Tenant_Code=T0000012

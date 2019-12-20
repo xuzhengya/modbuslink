@@ -1,0 +1,56 @@
+package com.modbus.mqtt;
+
+
+import org.apache.log4j.Logger;
+import org.eclipse.paho.client.mqttv3.MqttException;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+//import protocol.type.Command;
+
+public class ReadCommandProcess  {
+	public Logger logger=Logger.getLogger(ReadCommandProcess.class);
+	private  MqttProducer mqttClient;
+	private LinkedHashMap<String,Object> headerMap=new LinkedHashMap();
+	private LinkedHashMap<String,Object> bodyMap=new LinkedHashMap<>();
+	private String name=null;
+
+	public  ReadCommandProcess(LinkedHashMap<String,Object> headerMap, LinkedHashMap<String,Object> bodyMap, String name) throws MqttException, IOException
+	{
+		if (mqttClient == null) {
+			synchronized (ReadCommandProcess.class) {
+				if (mqttClient == null) {
+					this.headerMap = headerMap;
+					this.bodyMap = bodyMap;
+					this.name = name;
+					mqttClient = new MqttProducer();
+					process();
+				}
+			}
+		}
+	}
+
+
+	public void process() throws MqttException, IOException {
+
+		try {
+			String message = null;
+			message = Processor.getInstance().process(headerMap,bodyMap,name);
+			System.out.println(message);
+			if (message != null && message.length() > 0) {
+
+				if (!mqttClient.isConnect()) {
+					mqttClient.connect();
+				}
+				mqttClient.send(message, 2);
+			}
+		} catch (Exception e) {
+			logger.error("数据传输发生异常。", e.getCause());
+			e.printStackTrace();
+		}
+	}
+	
+}

@@ -1,0 +1,364 @@
+<configtemperatureRrobe_statu>
+    <modbus>
+        <!--时序数据库表名和字段名，按照表个数配置-->
+
+        <register ip="128.64.230.12" port="4006" host="1601050100021" name="AirCondition" >
+            <info slaveId="1" address="0" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="1" name="compressor_HpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="2" name="compressor_LpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="3" name="air_pressureSwitchAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="4" name="heating_protection_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="5" name="mesh_plug_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="6" name="power_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="7" name="fan_overload_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="8" name="humidifier_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="9" name="H_L_temperatureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="10" name="power_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="11" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="12" name="outdoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="13" name="indoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="14" name="outdoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="15" name="indoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="16" name="air_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="17" name="electrical_erro_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="18" name="make_water_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="40" name="pressure_fan_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="41" name="press_lose_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="42" name="energy_system_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="43" name="electric_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="44" name="wrong_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="45" name="humidifier_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="46" name="low_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="50" name="fault_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="51" name="rotating_output_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="36" name="exhaust_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="37" name="outdoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="38" name="indoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="39" name="outdoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="40" name="indoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="42" name="electrical_flow" code="0X03" size="10"/>
+
+            <info slaveId="1" address="152" name="air_pressureSwitch_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="153" name="mesh_plug_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="154" name="compressor_Hpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="155" name="compressor_Lpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="156" name="fan_overload_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="157" name="heating_protection_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="158" name="power_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="159" name="end_spreading_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="160" name="rotating_input_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="161" name="humidifier_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="162" name="water_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="163" name="air_failure_statu2" code="0X01" size="1"/>
+
+
+            <info slaveId="1" address="15" name="temperature_set" code="0X10" size="10"/>
+            <info slaveId="1" address="2" name="humidifier_set" code="0X10" size="10"/>
+
+            <info slaveId="1" address="16" name="temperature_difference_set" code="0X10" size="10"/>
+            <info slaveId="1" address="17" name="temperature_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="19" name="air_temperature_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="4" name="humidity_closing_point" code="0X10" size="10"/>
+            <info slaveId="1" address="46" name="humidity_return_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="47" name="humidity_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="48" name="dehumidification_threshold" code="0X10" size="10"/>
+            <info slaveId="1" address="8" name="Htemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="9" name="Ltemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="28" name="turn_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="29" name="rotating_address" code="0X10" size="1"/>
+            <info slaveId="1" address="35" name="rotating_numbers" code="0X10" size="1"/>
+            <info slaveId="1" address="30" name="rotating_interval" code="0X10" size="1"/>
+            <info slaveId="1" address="21" name="start_delay" code="0X10" size="1"/>
+            <info slaveId="1" address="22" name="low_latency" code="0X10" size="1"/>
+            <info slaveId="1" address="5" name="fan_stop" code="0X10" size="10"/>
+            <info slaveId="1" address="0" name="area_open" code="0X10" size="10"/>
+            <info slaveId="1" address="7" name="Internet_address" code="0X10" size="1"/>
+            <info slaveId="1" address="62" name="restore_company" code="0X10" size="1"/>
+            <info slaveId="1" address="18" name="indoor_temperature_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="14" name="outdoor_humidifier_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="12" name="outdoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="13" name="exhaust_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="49" name="indoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="1" name="exhaust_temperature_probe" code="0X10" size="1"/>
+            <info slaveId="1" address="3" name="outdoor_humidity_probe" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="50" name="air_pressure_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="51" name="mesh_plug" code="0X10" size="1"/>
+            <info slaveId="1" address="52" name="compressor_high_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="53" name="compressor_low_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="54" name="fan_overload" code="0X10" size="1"/>
+            <info slaveId="1" address="55" name="power_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="56" name="humidifier_fault" code="0X10" size="1"/>
+            <info slaveId="1" address="57" name="air_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="58" name="water_leakage_alarm" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="176" name="switching" code="0X01" size="1"/>
+            <info slaveId="1" address="176" name="switching2" code="0X05" size="1"/>
+            <info slaveId="1" address="24" name="operating_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="25" name="fault_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="26" name="mode" code="0X03" size="1"/>
+        </register>
+
+        <register ip="128.64.230.12" port="4007" host="1601050100016" name="AirCondition" >
+            <info slaveId="1" address="0" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="1" name="compressor_HpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="2" name="compressor_LpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="3" name="air_pressureSwitchAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="4" name="heating_protection_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="5" name="mesh_plug_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="6" name="power_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="7" name="fan_overload_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="8" name="humidifier_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="9" name="H_L_temperatureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="10" name="power_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="11" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="12" name="outdoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="13" name="indoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="14" name="outdoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="15" name="indoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="16" name="air_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="17" name="electrical_erro_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="18" name="make_water_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="40" name="pressure_fan_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="41" name="press_lose_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="42" name="energy_system_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="43" name="electric_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="44" name="wrong_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="45" name="humidifier_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="46" name="low_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="50" name="fault_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="51" name="rotating_output_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="36" name="exhaust_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="37" name="outdoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="38" name="indoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="39" name="outdoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="40" name="indoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="42" name="electrical_flow" code="0X03" size="10"/>
+
+            <info slaveId="1" address="152" name="air_pressureSwitch_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="153" name="mesh_plug_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="154" name="compressor_Hpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="155" name="compressor_Lpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="156" name="fan_overload_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="157" name="heating_protection_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="158" name="power_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="159" name="end_spreading_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="160" name="rotating_input_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="161" name="humidifier_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="162" name="water_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="163" name="air_failure_statu2" code="0X01" size="1"/>
+
+
+            <info slaveId="1" address="15" name="temperature_set" code="0X10" size="10"/>
+            <info slaveId="1" address="2" name="humidifier_set" code="0X10" size="10"/>
+
+            <info slaveId="1" address="16" name="temperature_difference_set" code="0X10" size="10"/>
+            <info slaveId="1" address="17" name="temperature_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="19" name="air_temperature_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="4" name="humidity_closing_point" code="0X10" size="10"/>
+            <info slaveId="1" address="46" name="humidity_return_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="47" name="humidity_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="48" name="dehumidification_threshold" code="0X10" size="10"/>
+            <info slaveId="1" address="8" name="Htemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="9" name="Ltemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="28" name="turn_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="29" name="rotating_address" code="0X10" size="1"/>
+            <info slaveId="1" address="35" name="rotating_numbers" code="0X10" size="1"/>
+            <info slaveId="1" address="30" name="rotating_interval" code="0X10" size="1"/>
+            <info slaveId="1" address="21" name="start_delay" code="0X10" size="1"/>
+            <info slaveId="1" address="22" name="low_latency" code="0X10" size="1"/>
+            <info slaveId="1" address="5" name="fan_stop" code="0X10" size="10"/>
+            <info slaveId="1" address="0" name="area_open" code="0X10" size="10"/>
+            <info slaveId="1" address="7" name="Internet_address" code="0X10" size="1"/>
+            <info slaveId="1" address="62" name="restore_company" code="0X10" size="1"/>
+            <info slaveId="1" address="18" name="indoor_temperature_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="14" name="outdoor_humidifier_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="12" name="outdoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="13" name="exhaust_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="49" name="indoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="1" name="exhaust_temperature_probe" code="0X10" size="1"/>
+            <info slaveId="1" address="3" name="outdoor_humidity_probe" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="50" name="air_pressure_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="51" name="mesh_plug" code="0X10" size="1"/>
+            <info slaveId="1" address="52" name="compressor_high_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="53" name="compressor_low_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="54" name="fan_overload" code="0X10" size="1"/>
+            <info slaveId="1" address="55" name="power_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="56" name="humidifier_fault" code="0X10" size="1"/>
+            <info slaveId="1" address="57" name="air_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="58" name="water_leakage_alarm" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="176" name="switching" code="0X01" size="1"/>
+            <info slaveId="1" address="176" name="switching2" code="0X05" size="1"/>
+            <info slaveId="1" address="24" name="operating_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="25" name="fault_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="26" name="mode" code="0X03" size="1"/>
+        </register>
+
+        <register ip="128.64.230.12" port="4008" host="1601050100015" name="AirCondition" >
+            <info slaveId="1" address="0" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="1" name="compressor_HpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="2" name="compressor_LpressureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="3" name="air_pressureSwitchAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="4" name="heating_protection_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="5" name="mesh_plug_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="6" name="power_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="7" name="fan_overload_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="8" name="humidifier_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="9" name="H_L_temperatureAlarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="10" name="power_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="11" name="exhaust_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="12" name="outdoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="13" name="indoor_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="14" name="outdoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="15" name="indoor_humidity_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="16" name="air_failure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="17" name="electrical_erro_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="18" name="make_water_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="40" name="pressure_fan_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="41" name="press_lose_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="42" name="energy_system_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="43" name="electric_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="44" name="wrong_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="45" name="humidifier_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="46" name="low_temperature_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="50" name="fault_output_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="51" name="rotating_output_statu" code="0X01" size="1"/>
+
+            <info slaveId="1" address="36" name="exhaust_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="37" name="outdoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="38" name="indoor_temperature" code="0X03" size="10"/>
+            <info slaveId="1" address="39" name="outdoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="40" name="indoor_humidity" code="0X03" size="10"/>
+            <info slaveId="1" address="42" name="electrical_flow" code="0X03" size="10"/>
+
+            <info slaveId="1" address="152" name="air_pressureSwitch_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="153" name="mesh_plug_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="154" name="compressor_Hpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="155" name="compressor_Lpressure_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="156" name="fan_overload_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="157" name="heating_protection_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="158" name="power_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="159" name="end_spreading_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="160" name="rotating_input_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="161" name="humidifier_failure_statu2" code="0X01" size="1"/>
+            <info slaveId="1" address="162" name="water_alarm_statu" code="0X01" size="1"/>
+            <info slaveId="1" address="163" name="air_failure_statu2" code="0X01" size="1"/>
+
+
+            <info slaveId="1" address="15" name="temperature_set" code="0X10" size="10"/>
+            <info slaveId="1" address="2" name="humidifier_set" code="0X10" size="10"/>
+
+            <info slaveId="1" address="16" name="temperature_difference_set" code="0X10" size="10"/>
+            <info slaveId="1" address="17" name="temperature_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="19" name="air_temperature_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="4" name="humidity_closing_point" code="0X10" size="10"/>
+            <info slaveId="1" address="46" name="humidity_return_difference" code="0X10" size="10"/>
+            <info slaveId="1" address="47" name="humidity_dead" code="0X10" size="10"/>
+            <info slaveId="1" address="48" name="dehumidification_threshold" code="0X10" size="10"/>
+            <info slaveId="1" address="8" name="Htemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="9" name="Ltemperature_warning" code="0X10" size="10"/>
+            <info slaveId="1" address="28" name="turn_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="29" name="rotating_address" code="0X10" size="1"/>
+            <info slaveId="1" address="35" name="rotating_numbers" code="0X10" size="1"/>
+            <info slaveId="1" address="30" name="rotating_interval" code="0X10" size="1"/>
+            <info slaveId="1" address="21" name="start_delay" code="0X10" size="1"/>
+            <info slaveId="1" address="22" name="low_latency" code="0X10" size="1"/>
+            <info slaveId="1" address="5" name="fan_stop" code="0X10" size="10"/>
+            <info slaveId="1" address="0" name="area_open" code="0X10" size="10"/>
+            <info slaveId="1" address="7" name="Internet_address" code="0X10" size="1"/>
+            <info slaveId="1" address="62" name="restore_company" code="0X10" size="1"/>
+            <info slaveId="1" address="18" name="indoor_temperature_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="14" name="outdoor_humidifier_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="12" name="outdoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="13" name="exhaust_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="49" name="indoor_correction" code="0X10" size="10"/>
+            <info slaveId="1" address="1" name="exhaust_temperature_probe" code="0X10" size="1"/>
+            <info slaveId="1" address="3" name="outdoor_humidity_probe" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="50" name="air_pressure_switch" code="0X10" size="1"/>
+            <info slaveId="1" address="51" name="mesh_plug" code="0X10" size="1"/>
+            <info slaveId="1" address="52" name="compressor_high_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="53" name="compressor_low_pressure" code="0X10" size="1"/>
+            <info slaveId="1" address="54" name="fan_overload" code="0X10" size="1"/>
+            <info slaveId="1" address="55" name="power_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="56" name="humidifier_fault" code="0X10" size="1"/>
+            <info slaveId="1" address="57" name="air_failure" code="0X10" size="1"/>
+            <info slaveId="1" address="58" name="water_leakage_alarm" code="0X10" size="1"/>
+
+
+            <info slaveId="1" address="176" name="switching" code="0X01" size="1"/>
+            <info slaveId="1" address="176" name="switching2" code="0X05" size="1"/>
+            <info slaveId="1" address="24" name="operating_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="25" name="fault_statu" code="0X03" size="1"/>
+            <info slaveId="1" address="26" name="mode" code="0X03" size="1"/>
+        </register>
+
+
+        <register ip="128.64.230.12" port="4001" host="ENVIRONMENT4001" name="Humiture">
+            <info slaveId="1" address="1" name="TEMP_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="2" name="HUMI_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="3" name="TEMP_HI" code="0X03" size="10"/>
+            <info slaveId="1" address="4" name="SPARE_1" code="0X03" size="1"/>
+            <info slaveId="1" address="5" name="SPARE_2" code="0X03" size="1"/>
+            <info slaveId="1" address="6" name="SPARE_3" code="0X03" size="1"/>
+            <info slaveId="1" address="7" name="DSP_TEMP" code="0X03" size="10"/>
+            <info slaveId="1" address="8" name="DSP_HUMI" code="0X03" size="10"/>
+            <info slaveId="1" address="9" name="Y1" code="0X03" size="100"/>
+            <info slaveId="1" address="10" name="Y2" code="0X03" size="100"/>
+            <info slaveId="1" address="11" name="AO_SET" code="0X03" size="1"/>
+            <info slaveId="1" address="12" name="Baudrate" code="0X03" size="1"/>
+            <info slaveId="1" address="13" name="DSP_TEMP_F" code="0X03" size="10"/>
+            <info slaveId="1" address="14" name="Alarm_Code" code="0X03" size="1"/>
+        </register>
+
+        <register ip="128.64.230.12" port="4002" host="ENVIRONMENT4002" name="Humiture">
+            <info slaveId="1" address="1" name="TEMP_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="2" name="HUMI_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="3" name="TEMP_HI" code="0X03" size="10"/>
+            <info slaveId="1" address="4" name="SPARE_1" code="0X03" size="1"/>
+            <info slaveId="1" address="5" name="SPARE_2" code="0X03" size="1"/>
+            <info slaveId="1" address="6" name="SPARE_3" code="0X03" size="1"/>
+            <info slaveId="1" address="7" name="DSP_TEMP" code="0X03" size="10"/>
+            <info slaveId="1" address="8" name="DSP_HUMI" code="0X03" size="10"/>
+            <info slaveId="1" address="9" name="Y1" code="0X03" size="100"/>
+            <info slaveId="1" address="10" name="Y2" code="0X03" size="100"/>
+            <info slaveId="1" address="11" name="AO_SET" code="0X03" size="1"/>
+            <info slaveId="1" address="12" name="Baudrate" code="0X03" size="1"/>
+            <info slaveId="1" address="13" name="DSP_TEMP_F" code="0X03" size="10"/>
+            <info slaveId="1" address="14" name="Alarm_Code" code="0X03" size="1"/>
+        </register>
+
+        <register ip="128.64.230.12" port="4003" host="ENVIRONMENT4003" name="Humiture">
+            <info slaveId="1" address="1" name="TEMP_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="2" name="HUMI_OFS" code="0X03" size="10"/>
+            <info slaveId="1" address="3" name="TEMP_HI" code="0X03" size="10"/>
+            <info slaveId="1" address="4" name="SPARE_1" code="0X03" size="1"/>
+            <info slaveId="1" address="5" name="SPARE_2" code="0X03" size="1"/>
+            <info slaveId="1" address="6" name="SPARE_3" code="0X03" size="1"/>
+            <info slaveId="1" address="7" name="DSP_TEMP" code="0X03" size="10"/>
+            <info slaveId="1" address="8" name="DSP_HUMI" code="0X03" size="10"/>
+            <info slaveId="1" address="9" name="Y1" code="0X03" size="100"/>
+            <info slaveId="1" address="10" name="Y2" code="0X03" size="100"/>
+            <info slaveId="1" address="11" name="AO_SET" code="0X03" size="1"/>
+            <info slaveId="1" address="12" name="Baudrate" code="0X03" size="1"/>
+            <info slaveId="1" address="13" name="DSP_TEMP_F" code="0X03" size="10"/>
+            <info slaveId="1" address="14" name="Alarm_Code" code="0X03" size="1"/>
+        </register>
+    </modbus>
+
+</configtemperatureRrobe_statu>
+
+
+
